@@ -1,14 +1,15 @@
-﻿namespace HR.LeaveManagement.Domain;
+﻿using HR.LeaveManagement.Domain.Common;
 
-public class LeaveRequest
+namespace HR.LeaveManagement.Domain;
+
+public class LeaveRequest : BaseDomainEntity
 {
-    public int Id { get; set; }
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
-    public LeaveType LeaveType { get; set; }
+    public LeaveType? LeaveType { get; set; }
     public int LeaveTypeId { get; set; }
     public DateTime DateRequested { get; set; }
-    public string RequestComments { get; set; }
+    public string RequestComments { get; set; } = string.Empty;
     public DateTime DateActioned { get; set; }
     public bool? Approved { get; set; }
     public bool Cancelled { get; set; }
