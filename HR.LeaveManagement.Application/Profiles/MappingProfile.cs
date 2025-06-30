@@ -5,6 +5,7 @@ using HR.LeaveManagement.Domain;
 
 namespace HR.LeaveManagement.Application.Profiles;
 
+
 public class MappingProfile : Profile
 {
     public MappingProfile()
