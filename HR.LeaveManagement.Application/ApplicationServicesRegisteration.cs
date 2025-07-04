@@ -1,5 +1,12 @@
-﻿namespace HR.LeaveManagement.Application;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
 
-public class ApplicationServicesRegisteration
+namespace HR.LeaveManagement.Application;
+
+public static class ApplicationServicesRegisteration
 {
+    public static void ConfigureApplicationServices(this IServiceCollection services)
+    {
+        services.AddAutoMapper(Assembly.GetExecutingAssembly());
+    }
 }
