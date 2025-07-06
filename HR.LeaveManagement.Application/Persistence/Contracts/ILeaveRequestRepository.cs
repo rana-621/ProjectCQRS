@@ -6,4 +6,6 @@ public interface ILeaveRequestRepository : IGenericRepository<LeaveRequest>
 {
     Task<LeaveRequest> GetLeaveRequestsWithDetails();
     Task<LeaveRequest> GetLeaveRequestWithDetails(int id);
+    Task ChangeApprovalStatus(LeaveRequest leaveRequest, bool? ApprovalStatus);
+
 }
