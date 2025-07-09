@@ -18,7 +18,7 @@ public class DeleteLeaveAllocationCommandHandler : IRequestHandler<DeleteLeaveAl
     public async Task<Unit> Handle(DeleteLeaveAllocationCommand request, CancellationToken cancellationToken)
     {
         var leaveAllocation = await _leaveAllocationRepository.GetById(request.Id);
-        await _leaveAllocationRepository.Delete(leaveAllocation);
+        await _leaveAllocationRepository.Delete(leaveAllocation.Id);
         return Unit.Value;
     }
 }
