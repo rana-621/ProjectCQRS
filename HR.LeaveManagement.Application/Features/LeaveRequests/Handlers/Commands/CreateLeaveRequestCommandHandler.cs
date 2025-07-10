@@ -18,6 +18,8 @@ public class CreateLeaveRequestCommandHandler :
     }
     public async Task<int> Handle(CreateLeaveRequestCommand request, CancellationToken cancellationToken)
     {
+
+
         var leaveRequest = _mapper.Map<LeaveRequest>(request.LeaveRequestDto);
         await _leaveRequestRepository.Add(leaveRequest);
         return leaveRequest.Id;
