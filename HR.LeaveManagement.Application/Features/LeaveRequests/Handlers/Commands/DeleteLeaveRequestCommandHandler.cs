@@ -23,7 +23,7 @@ public class DeleteLeaveRequestCommandHandler : IRequestHandler<DeleteLeaveReque
         var leaveRequest = await _leaveRequestRepository.GetById(request.Id);
 
         if (leaveRequest == null)
-            throw new NotFoundException(nameof(leaveRequest), request.Idid);
+            throw new NotFoundException(nameof(leaveRequest), request.Id);
         await _leaveRequestRepository.Delete(leaveRequest.Id);
         return Unit.Value;
 
