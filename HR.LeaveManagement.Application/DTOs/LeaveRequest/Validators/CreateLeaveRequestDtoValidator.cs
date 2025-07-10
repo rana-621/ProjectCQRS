@@ -11,23 +11,8 @@ public class CreateLeaveRequestDtoValidator : AbstractValidator<CreateLeaveReque
     {
         _leaveTypeRepository = leaveTypeRepository;
 
-        RuleFor(x => x.StartDate)
-            .LessThan(p => p.EndDate).WithMessage("{ProperyName} must be before {ComparisonValue}.");
-
-        RuleFor(x => x.EndDate)
-            .GreaterThan(p => p.StartDate).WithMessage("{ProperyName} must be after {ComparisonValue}.");
+        Include(new ILeaveRequestDtoValidator(_leaveTypeRepository));
 
 
-
-        RuleFor(x => x.LeaveTypeId)
-           .MustAsync(async (id, token) =>
-           {
-               var leaveTypeExists = await _leaveTypeRepository.Exists(id);
-               return !leaveTypeExists;
-           })
-           .WithMessage("{ PropertyName} doesnot exist.f");
-
-        RuleFor(x => x.RequestComments)
-            .MaximumLength(500).WithMessage("Request comments cannot exceed 500 characters.");
     }
 }
