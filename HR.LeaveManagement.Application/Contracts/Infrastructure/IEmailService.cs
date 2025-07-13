@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using HR.LeaveManagement.Application.Models;
 
-namespace HR.LeaveManagement.Application.Contracts.Infrastructure
+namespace HR.LeaveManagement.Application.Contracts.Infrastructure;
+
+public interface IEmailService
 {
-    internal interface IEmailService
-    {
-    }
+    Task<bool> SendEmail(Email eamil);
 }
