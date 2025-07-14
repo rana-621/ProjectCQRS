@@ -2,7 +2,7 @@
 
 namespace HR.LeaveManagement.Application.Contracts.Infrastructure;
 
-public interface IEmailService
+public interface IEmailSender
 {
     Task<bool> SendEmail(Email eamil);
 }
