@@ -8,9 +8,9 @@ namespace HR.LeaveManagement.Infrastructure.Mail;
 
 public class EmailSender : IEmailSender
 {
-    private EamilSettings _emailSettings { get; }
+    private EmailSettings _emailSettings { get; }
 
-    public EmailSender(IOptions<EamilSettings> emailSettings)
+    public EmailSender(IOptions<EmailSettings> emailSettings)
     {
         _emailSettings = emailSettings.Value;
     }
