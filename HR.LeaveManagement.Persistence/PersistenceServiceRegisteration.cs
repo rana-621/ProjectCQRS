@@ -1,6 +1,7 @@
 ﻿using HR.LeaveManagement.Application.Contracts.Persistence;
 using HR.LeaveManagement.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -21,5 +22,13 @@ public static class PersistenceServiceRegisteration
         services.AddScoped<ILeaveAllocationRepository, LeaveAllocationRepository>();
 
         return services;
+    }
+}
+
+
+public class LeaveManagementDbContextFactor : IDesignTimeDbContextFactory<HrLeaveManagementDbContext>
+{
+    public HrLeaveManagementDbContext CreateDbContext(string[] args)
+    {
     }
 }
