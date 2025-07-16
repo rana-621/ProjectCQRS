@@ -30,5 +30,13 @@ public class LeaveManagementDbContextFactor : IDesignTimeDbContextFactory<HrLeav
 {
     public HrLeaveManagementDbContext CreateDbContext(string[] args)
     {
+        IConfigurationRoot configuration = new ConfigurationBuilder()
+           .SetBasePath(Directory.GetCurrentDirectory())
+           .AddJsonFile("appsettings.json")
+           .Build();
+
+
+        var builder = new DbContextOptionsBuilder<HrLeaveManagementDbContext>();
+
     }
 }
