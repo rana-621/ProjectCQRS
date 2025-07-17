@@ -37,6 +37,9 @@ public class LeaveManagementDbContextFactor : IDesignTimeDbContextFactory<HrLeav
 
 
         var builder = new DbContextOptionsBuilder<HrLeaveManagementDbContext>();
+        var connectionString = configuration.GetConnectionString("LeaveManagementConnectionString");
 
+        builder.UseSqlServer(connectionString);
+        return new HrLeaveManagementDbContext(builder.Options);
     }
 }
