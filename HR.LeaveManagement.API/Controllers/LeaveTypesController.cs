@@ -1,12 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
-namespace HR.LeaveManagement.API.Controllers
+namespace HR.LeaveManagement.API.Controllers;
+
+[Authorize(Roles = "Administrator")]
+public class LeaveTypesController : Controller
 {
-    public class LeaveTypesController : Controller
+
+    public IActionResult Index()
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+        return View();
     }
 }
