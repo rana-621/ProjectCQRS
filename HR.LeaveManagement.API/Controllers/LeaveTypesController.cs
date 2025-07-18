@@ -1,9 +1,10 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace HR.LeaveManagement.API.Controllers;
 
-[Authorize(Roles = "Administrator")]
+//[Authorize(Roles = "Administrator")]
+[Route("api/[controller]")]
+[ApiController]
 public class LeaveTypesController : Controller
 {
 
