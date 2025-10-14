@@ -1,10 +1,9 @@
-﻿using HR.LeaveManagement.Application.DTOs;
-using HR.LeaveManagement.Application.DTOs.LeaveAllocation;
-using HR.LeaveManagement.Application.Features.LeaveAllocations.Requests.Commands;
-using HR.LeaveManagement.Application.Features.LeaveAllocations.Requests.Queries;
+﻿using AutoMapper;
+using HR.LeaveManagement.Application.DTOs.LeaveType;
+using HR.LeaveManagement.Application.Features.LeaveTypes.Requests.Commands;
+using HR.LeaveManagement.Application.Features.LeaveTypes.Requests.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using LeaveAllocationDto = HR.LeaveManagement.Application.DTOs.LeaveAllocation.LeaveAllocationDto;
 
 namespace HR.LeaveManagement.API.Controllers;
 
@@ -14,6 +13,7 @@ namespace HR.LeaveManagement.API.Controllers;
 public class LeaveTypesController : Controller
 {
     private readonly IMediator _mediator;
+    private readonly IMapper _mapper;
 
     public LeaveTypesController(IMediator mediator)
     {
@@ -21,39 +21,28 @@ public class LeaveTypesController : Controller
     }
 
     [HttpGet]
-    public async Task<ActionResult<LeaveAllocationDto>> Get()
+    public async Task<ActionResult<LeaveTypeDto>> Get()
     {
-        var leaveAllocations = await _mediator.Send(new GetLeaveAllocationDetailRequest());
-        return Ok(leaveAllocations);
+        var leaveTypes = await _mediator.Send(new GetLeaveTypeDetailRequest());
+        return Ok(leaveTypes);
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<LeaveAllocationDto>> Get(int id)
+    public async Task<ActionResult<LeaveTypeDto>> Get(int id)
     {
-        var leaveAllocation = await _mediator.Send(new GetLeaveAllocationDetailRequest { Id = id });
-        return Ok(leaveAllocation);
+        var leaveType = await _mediator.Send(new GetLeaveTypeDetailRequest { Id = id });
+        return Ok(leaveType);
     }
 
     [HttpPost]
-    public async Task<ActionResult> Post([FromBody] CreateLeaveAllocationDto leaveAllocation)
+    public async Task<ActionResult> Post([FromBody] CreateLeaveTypeDto leaveType)
     {
-        var command = new CreateLeaveAllocationCommand { LeaveAllocationDto = leaveAllocation };
+        var command = new CreateLeaveTypeCommand { LeaveTypeDto = leaveType };
         var request = await _mediator.Send(command);
         return Ok(request);
     }
 
 
-    [HttpPut]
-    public async Task<ActionResult> Put([FromBody] CreateLeaveAllocationDto leaveAllocation)
-    {
-        var command = new CreateLeaveAllocationCommand { LeaveAllocationDto = leaveAllocation };
-        await _mediator.Send(command);
-        return NoContent();
-    }
-    public IActionResult Index()
-    {
-        return View();
-    }
 
 
 }
