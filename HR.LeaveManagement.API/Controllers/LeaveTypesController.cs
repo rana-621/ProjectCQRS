@@ -43,6 +43,13 @@ public class LeaveTypesController : Controller
     }
 
 
+    [HttpPut("{id}")]
+    public async Task<ActionResult> Put(int id, [FromBody] CreateLeaveTypeDto leaveType)
+    {
+        var command = new CreateLeaveTypeCommand { LeaveTypeDto = leaveType };
+        await _mediator.Send(command);
+        return NoContent();
+    }
 
 
 }
