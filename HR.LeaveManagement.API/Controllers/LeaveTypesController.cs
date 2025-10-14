@@ -50,6 +50,11 @@ public class LeaveTypesController : Controller
         await _mediator.Send(command);
         return NoContent();
     }
-
+    public async Task<ActionResult> Delete(int id)
+    {
+        var command = new DeleteLeaveTypeCommand { Id = id };
+        await _mediator.Send(command);
+        return NoContent();
+    }
 
 }
