@@ -53,8 +53,7 @@ public class LeaveTypesController : Controller
     [HttpDelete("{id}")]
     public async Task<ActionResult> Delete(int id)
     {
-        var command = new DeleteLeaveTypeCommand { Id = id };
-        await _mediator.Send(command);
+        await _mediator.Send(new DeleteLeaveTypeCommand { Id = id });
         return NoContent();
     }
 
