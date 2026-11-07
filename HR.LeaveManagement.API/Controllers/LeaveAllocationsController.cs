@@ -49,10 +49,10 @@ public class LeaveAllocationsController : Controller
         await _mediator.Send(command);
         return NoContent();
     }
-    public IActionResult Index()
-    {
-        return View();
-    }
+    //public IActionResult Index()
+    //{
+    //    return View();
+    //}
 
 
 }
