@@ -7,5 +7,13 @@ namespace HR.LeaveManagement.Persistence.Configurations.Entities;
 public class LeaveAllocationConfiguration : IEntityTypeConfiguration<LeaveAllocation>
 {
     public void Configure(EntityTypeBuilder<LeaveAllocation> builder)
-    { }
+    {
+        builder.HasData
+            (
+            new LeaveAllocation
+            {
+
+            }
+            );
+    }
 }
