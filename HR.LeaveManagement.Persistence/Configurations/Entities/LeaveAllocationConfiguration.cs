@@ -8,12 +8,12 @@ public class LeaveAllocationConfiguration : IEntityTypeConfiguration<LeaveAlloca
 {
     public void Configure(EntityTypeBuilder<LeaveAllocation> builder)
     {
-        builder.HasData
-            (
-            new LeaveAllocation
-            {
+        //builder.HasData
+        //    (
+        //    new LeaveAllocation
+        //    {
 
-            }
-            );
+        //    }
+        //    );
     }
 }

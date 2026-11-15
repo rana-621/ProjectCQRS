@@ -10,6 +10,7 @@ namespace HR.LeaveManagement.API
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
             builder.Services.ConfigureApplicationServices();
             builder.Services.ConfigureInfrastructureServices(builder.Configuration);
             builder.Services.ConfigurePersistenceServices(builder.Configuration);
