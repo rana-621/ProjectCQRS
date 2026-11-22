@@ -14,9 +14,10 @@ public class LeaveRequestController : Controller
     private readonly IMediator _mediator;
     private readonly IMapper _mapper;
 
-    public LeaveRequestController(IMediator mediator)
+    public LeaveRequestController(IMediator mediator, IMapper mapper)
     {
         _mediator = mediator;
+        _mapper = mapper;
     }
 
     [HttpGet]
