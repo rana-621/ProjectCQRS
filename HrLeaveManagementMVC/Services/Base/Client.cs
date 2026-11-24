@@ -1,14 +1,12 @@
-﻿
-namespace HrLeaveManagementMVC.Services.Base
+﻿namespace HrLeaveManagementMVC.Services.Base;
+
+public partial class Client : IClient
 {
-    public class Client : ICient
+    public HttpClient HttpClient
     {
-        public HttpClient httpClient
+        get
         {
-            get
-            {
-                return _httpClient;
-            }
+            return _httpClient;
         }
     }
 }
